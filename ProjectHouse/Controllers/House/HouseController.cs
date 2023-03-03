@@ -29,5 +29,11 @@ namespace ProjectHouse.Controllers.House
                 });
             return View(result);
         }
+        public IActionResult Create()
+        {
+            HouseCreateUpdateViewModel car = new HouseCreateUpdateViewModel();
+
+            return View("CreateUpdate", car);
+        }
     }
 }
