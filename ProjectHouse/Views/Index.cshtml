@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int rowNumber = 1;
+}
+
+<div class="h1">
+    Buildings
+</div>
+
+<div>
+    <a asp-action="Create" asp-controller="house" type="submit" class="btn btn-primary">Create</a>
+</div>
+
+<form method="post">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nr</th>
+                <th scope="col">Size</th>
+                <th scope="col">NumberOfFloors</th>
+                <th scope="col">NumberOfBathrooms</th>
+                <th scope="col">NumberOfBedrooms</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var House in Model)
+            {
+                <tr>
+                    <td>@rowNumber</td>
+                    <td>@House.Size</td>
+                    <td>@House.NumberOfFloors</td>
+                    <td>@House.NumberOfBathrooms</td>
+                    <td>@House.NumberOfBedrooms</td>
+                    <td>
+                        <a asp-action="details" asp-controller="house" asp-route-id="@House.Id" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+                rowNumber += 1;
+            }
+        </tbody>
+    </table>
+</form>
