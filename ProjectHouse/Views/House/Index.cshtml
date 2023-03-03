@@ -1,6 +1,5 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<ProjectHouse.Models.House.HouseIndexViewModel>
+
 @{
     int rowNumber = 1;
 }
@@ -10,7 +9,7 @@
 </div>
 
 <div>
-    <a asp-action="Create" asp-controller="house" type="submit" class="btn btn-primary">Create</a>
+    <a asp-action="create" asp-controller="house" type="submit" class="btn btn-primary">Create</a>
 </div>
 
 <form method="post">
@@ -35,7 +34,7 @@
                     <td>@House.NumberOfBathrooms</td>
                     <td>@House.NumberOfBedrooms</td>
                     <td>
-                        <a asp-action="details" asp-controller="house" asp-route-id="@House.Id" class="btn btn-info">Details</a>
+                        <a asp-action="details" asp-controller="house" asp-route-id="@House.id" class="btn btn-info">Details</a>
                     </td>
                 </tr>
                 rowNumber += 1;
