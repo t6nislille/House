@@ -1,5 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model ProjectHouse.Models.House.HouseCreateUpdateViewModel
+
+@if (Model.id.HasValue)
+{
+    <h1>Update</h1>
 }
+else
+{
+    <h1>Create</h1>
+}
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="id" type="hidden" />
+        <input asp-for="CreatedAt" type="hidden" />
+        <input asp-for="ModifiedAt" type="hidden" />
+
+        <div class="form-group row">
+            <label asp-for="Size" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Size" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="NumberOfFloors" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="NumberOfFloors" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="NumberOfBathrooms" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="NumberOfBathrooms" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="NumberOfBedrooms" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="NumberOfBedrooms" class="form-control" />
+            </div>
+        </div>
+
+
+        <hr />
+
+        @if (Model.id.HasValue)
+        {
+
+
+            <input asp-action="Update" asp-controller="house" type="submit" class=" btn btn-primary" value="Update" />
+        }
+        else
+        {
+            <input asp-action="Create" asp-controller="house" type="submit" class=" btn btn-primary" value="Create" />
+
+        }
+
+        <a asp-action="index" class="btn btn-primary">Back</a>
+
+    </form>
+</div>
