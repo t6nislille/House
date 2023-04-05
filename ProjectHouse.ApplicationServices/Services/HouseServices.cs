@@ -1,10 +1,11 @@
 ﻿using ProjectHouse.Core.Domain;
 using ProjectHouse.Core.Dto;
+using ProjectHouse.Core.ServiceInterface;
 using ProjectHouse.Data;
 
 namespace ProjectHouse.ApplicationServices.Services
 {
-    public class HouseServices
+    public class HouseServices : IHouseServices
     {
         private readonly ProjectHouseContext _context;
         public HouseServices(ProjectHouseContext context)
