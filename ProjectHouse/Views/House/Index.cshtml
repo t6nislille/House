@@ -5,7 +5,7 @@
 }
 
 <div class="h1">
-    Buildings
+    Houses
 </div>
 
 <div>
@@ -34,7 +34,12 @@
                     <td>@House.NumberOfBathrooms</td>
                     <td>@House.NumberOfBedrooms</td>
                     <td>
-                        </td>
+                        <a asp-action="details" asp-controller="house" asp-route-id="@House.Id" class="btn btn-info">Details</a>
+                        <a asp-action="update" asp-controller="house" asp-route-id="@House.Id" class="btn btn-info">Update</a>
+                        <a asp-action="delete" asp-controller="house" asp-route-id="@House.Id" class="btn btn-danger">Delete</a>
+
+
+                    </td>
                 </tr>
                 rowNumber += 1;
             }
