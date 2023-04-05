@@ -18,8 +18,22 @@ namespace ProjectHouse.HouseTest
             AssertHouseFields(houseDto, result);
             Assert.True(testStart < result.CreatedAt);
             Assert.True(testStart < result.ModifiedAt);
+        }
 
+        [Fact]
+        public async Task GetAsync_InValidId_ShouldNotGet()
+        {
+            Assert.Null(await Svc<IHouseServices>().GetAsync(Guid.NewGuid()));
+        }
 
+        [Fact]
+        public async Task GetAsync_Valid_ShouldGet()
+        {
+            HouseDto houseDto = CreateValidHouse();
+            var createdHouse = await Svc<IHouseServices>().Create(houseDto);
+
+            var result = await Svc<IHouseServices>().GetAsync((Guid)createdHouse.Id);
+            Assert.Equal(createdHouse, result);
         }
 
         private HouseDto CreateValidHouse()
