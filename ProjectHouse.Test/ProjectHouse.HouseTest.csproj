@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ProjectHouse.ApplicationServices\ProjectHouse.ApplicationServices.csproj" />
+	</ItemGroup>
+
 </Project>

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjectHouse.HouseTest.Macros
+﻿namespace ProjectHouse.HouseTest.Macros
 {
-    internal class IMacros
+    public class IMacros
     {
     }
 }

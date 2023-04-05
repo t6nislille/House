@@ -10,5 +10,9 @@ namespace ProjectHouse.HouseTest
     internal class Test : TestBase
     {
         [Fact]
+        public async Task Create_ValidHouse_ShouldDeCreated()
+        {
+
+        }
     }
 }
