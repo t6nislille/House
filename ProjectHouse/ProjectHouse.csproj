@@ -15,6 +15,7 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\ProjectHouse.ApplicationServices\ProjectHouse.ApplicationServices.csproj" />
 		<ProjectReference Include="..\ProjectHouse.Data\ProjectHouse.Data.csproj" />
 	</ItemGroup>
 
