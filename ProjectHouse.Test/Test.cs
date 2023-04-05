@@ -36,6 +36,30 @@ namespace ProjectHouse.HouseTest
             Assert.Equal(createdHouse, result);
         }
 
+        [Fact]
+        public async Task Delete_IsFoundById_ShouldBeDeleted()
+        {
+            HouseDto houseDto = CreateValidHouse();
+            var createdHouse = await Svc<IHouseServices>().Create(houseDto);
+
+            var result = await Svc<IHouseServices>().Delete((Guid)createdHouse.Id);
+            Assert.Equal(createdHouse, result);
+        }
+
+        [Fact]
+        public async Task Update_House_ShouldBeUpdated()
+        {
+            HouseDto houseDto = CreateValidHouse();
+            await Svc<IHouseServices>().Create(houseDto);
+            HouseDto newHouse = UpdateValidHouse(houseDto);
+
+            var result = await Svc<IHouseServices>().Update(newHouse);
+            AssertHouseFields(newHouse, result);
+            Assert.Equal(newHouse.CreatedAt, result.CreatedAt);
+            Assert.NotEqual(newHouse.ModifiedAt, result.ModifiedAt);
+        }
+
+        //ShortcutMethods
         private HouseDto CreateValidHouse()
         {
             HouseDto houseDto = new();
@@ -54,6 +78,16 @@ namespace ProjectHouse.HouseTest
             Assert.Equal(expected.NumberOfFloors, actual.NumberOfFloors);
             Assert.Equal(expected.NumberOfBathrooms, actual.NumberOfBathrooms);
             Assert.Equal(expected.NumberOfBedrooms, actual.NumberOfBedrooms);
+        }
+
+        private HouseDto UpdateValidHouse(HouseDto house)
+        {
+            house.Size = 500;
+            house.NumberOfFloors = 5;
+            house.NumberOfBathrooms = 5;
+            house.NumberOfBedrooms = 5;
+
+            return house;
         }
 
         
