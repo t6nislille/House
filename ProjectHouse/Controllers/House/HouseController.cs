@@ -64,5 +64,111 @@ namespace ProjectHouse.Controllers.House
 
             return RedirectToAction(nameof(Index), vm);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Update(Guid id)
+        {
+            var house = await _houseServices.GetAsync(id);
+
+            if(house == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new HouseCreateUpdateViewModel();
+
+            vm.Id = house.Id;
+            vm.Size = house.Size;
+            vm.NumberOfFloors = house.NumberOfFloors;
+            vm.NumberOfBathrooms= house.NumberOfBathrooms;
+            vm.NumberOfBedrooms = house.NumberOfBedrooms;
+            vm.CreatedAt = house.CreatedAt;
+            vm.ModifiedAt = house.ModifiedAt;
+
+            return View("CreateUpdate", vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(HouseCreateUpdateViewModel vm)
+        {
+            var dto = new HouseDto()
+            {
+                Id = vm.Id,
+                Size = vm.Size,
+                NumberOfFloors = vm.NumberOfFloors,
+                NumberOfBathrooms = vm.NumberOfBathrooms,
+                NumberOfBedrooms = vm.NumberOfBedrooms,
+                CreatedAt = vm.CreatedAt,
+                ModifiedAt = vm.ModifiedAt
+            };
+
+            var result = await _houseServices.Update(dto);
+
+            if (result == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index), vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(Guid id)
+        {
+            var house = await _houseServices.GetAsync(id);
+
+            if (house == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new HouseDetailsViewModel();
+
+            vm.Id = house.Id;
+            vm.Size = house.Size;
+            vm.NumberOfFloors = house.NumberOfFloors;
+            vm.NumberOfBathrooms = house.NumberOfBathrooms;
+            vm.NumberOfBedrooms = house.NumberOfBedrooms;
+            vm.CreatedAt = house.CreatedAt;
+            vm.ModifiedAt = house.ModifiedAt;
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var house = await _houseServices.GetAsync(id);
+
+            if (house == null)
+            {
+                return NotFound();
+            }
+
+            var vm = new HouseDeleteViewModel();
+
+            vm.Id = house.Id;
+            vm.Size = house.Size;
+            vm.NumberOfFloors = house.NumberOfFloors;
+            vm.NumberOfBathrooms = house.NumberOfBathrooms;
+            vm.NumberOfBedrooms = house.NumberOfBedrooms;
+            vm.CreatedAt = house.CreatedAt;
+            vm.ModifiedAt = house.ModifiedAt;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        {
+            var houseId = await _houseServices.Delete(id);
+
+            if (houseId == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
