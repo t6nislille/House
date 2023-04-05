@@ -55,7 +55,7 @@ namespace ProjectHouse.ApplicationServices.Services
                 NumberOfBathrooms = dto.NumberOfBathrooms,
                 NumberOfBedrooms = dto.NumberOfBedrooms,
                 CreatedAt = dto.CreatedAt,
-                ModifiedAt = dto.ModifiedAt
+                ModifiedAt = DateTime.Now
             };
 
             _context.Houses.Update(domain);
