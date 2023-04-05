@@ -2,7 +2,7 @@
 {
     public class HouseIndexViewModel
     {
-        public Guid? id { get; set; }
+        public Guid? Id { get; set; }
         public int Size { get; set; }
         public int NumberOfFloors { get; set; }
         public int NumberOfBathrooms { get; set; }

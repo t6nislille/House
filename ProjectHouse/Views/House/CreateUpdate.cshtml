@@ -1,6 +1,6 @@
 ﻿@model ProjectHouse.Models.House.HouseCreateUpdateViewModel
 
-@if (Model.id.HasValue)
+@if (Model.Id.HasValue)
 {
     <h1>Update</h1>
 }
@@ -11,7 +11,7 @@ else
 
 <div>
     <form method="post" enctype="multipart/form-data">
-        <input asp-for="id" type="hidden" />
+        <input asp-for="Id" type="hidden" />
         <input asp-for="CreatedAt" type="hidden" />
         <input asp-for="ModifiedAt" type="hidden" />
 
@@ -46,7 +46,7 @@ else
 
         <hr />
 
-        @if (Model.id.HasValue)
+        @if (Model.Id.HasValue)
         {
 
 
