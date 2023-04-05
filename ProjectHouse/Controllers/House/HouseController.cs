@@ -2,19 +2,23 @@
 using ProjectHouse.Data;
 using ProjectHouse.Models.House;
 using ProjectHouse.Core.Dto;
+using ProjectHouse.Core.ServiceInterface;
 
 namespace ProjectHouse.Controllers.House
 {
     public class HouseController : Controller
     {
         private readonly ProjectHouseContext _context;
+        private readonly IHouseServices _houseServices;
 
         public HouseController
             (
-                ProjectHouseContext context
+                ProjectHouseContext context,
+                IHouseServices houseServices
             )
         {
             _context = context;
+            _houseServices = houseServices;
         }
         public IActionResult Index()
         {
@@ -22,7 +26,7 @@ namespace ProjectHouse.Controllers.House
                 .OrderByDescending(y => y.CreatedAt)
                 .Select(x => new HouseIndexViewModel
                 {
-                    id = x.id,
+                    Id = x.Id,
                     Size = x.Size,
                     NumberOfFloors = x.NumberOfFloors,
                     NumberOfBathrooms = x.NumberOfBathrooms,
@@ -32,15 +36,17 @@ namespace ProjectHouse.Controllers.House
         }
         public IActionResult Create()
         {
-            HouseCreateUpdateViewModel House = new HouseCreateUpdateViewModel();
+            HouseCreateUpdateViewModel house = new HouseCreateUpdateViewModel();
 
-            return View("CreateUpdate", House);
+            return View("CreateUpdate", house);
         }
+
+        [HttpPost]
         public async Task<IActionResult> Create(HouseCreateUpdateViewModel vm)
         {
             var dto = new HouseDto()
             {
-                id = vm.id,
+                Id = vm.Id,
                 Size = vm.Size,
                 NumberOfFloors = vm.NumberOfFloors,
                 NumberOfBathrooms = vm.NumberOfBathrooms,
@@ -49,8 +55,14 @@ namespace ProjectHouse.Controllers.House
                 ModifiedAt = vm.ModifiedAt,
             };
 
-            return View("CreateUpdate");
+            var result = await _houseServices.Create(dto);
 
+            if (result == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index), vm);
         }
     }
 }
