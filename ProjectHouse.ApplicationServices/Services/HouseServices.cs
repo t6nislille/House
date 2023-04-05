@@ -9,7 +9,10 @@ namespace ProjectHouse.ApplicationServices.Services
     public class HouseServices : IHouseServices
     {
         private readonly ProjectHouseContext _context;
-        public HouseServices(ProjectHouseContext context)
+        public HouseServices
+            (
+                ProjectHouseContext context
+            )
         {
             _context = context;
         }
@@ -42,7 +45,7 @@ namespace ProjectHouse.ApplicationServices.Services
             return result;
         }
 
-        public async Task<House> Update(House dto)
+        public async Task<House> Update(HouseDto dto)
         {
             var domain = new House()
             {
@@ -57,6 +60,7 @@ namespace ProjectHouse.ApplicationServices.Services
 
             _context.Houses.Update(domain);
             await _context.SaveChangesAsync();
+
             return domain;
         }
 
@@ -67,6 +71,7 @@ namespace ProjectHouse.ApplicationServices.Services
 
             return houseId;
         }
+
     }
 }
 
