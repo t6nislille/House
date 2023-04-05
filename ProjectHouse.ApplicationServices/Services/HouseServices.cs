@@ -41,6 +41,32 @@ namespace ProjectHouse.ApplicationServices.Services
 
             return result;
         }
+
+        public async Task<House> Update(House dto)
+        {
+            var domain = new House()
+            {
+                Id = dto.Id,
+                Size = dto.Size,
+                NumberOfFloors = dto.NumberOfFloors,
+                NumberOfBathrooms = dto.NumberOfBathrooms,
+                NumberOfBedrooms = dto.NumberOfBedrooms,
+                CreatedAt = dto.CreatedAt,
+                ModifiedAt = dto.ModifiedAt
+            };
+
+            _context.Houses.Update(domain);
+            await _context.SaveChangesAsync();
+            return domain;
+        }
+
+        public async Task<House> Delete(Guid id)
+        {
+            var houseId = await _context.Houses
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            return houseId;
+        }
     }
 }
 
