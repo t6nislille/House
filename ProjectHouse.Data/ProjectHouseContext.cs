@@ -11,3 +11,4 @@ namespace ProjectHouse.Data
         public DbSet<House> Houses { get; set; }
     }
 }
+ 

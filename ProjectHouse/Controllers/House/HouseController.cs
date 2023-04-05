@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectHouse.Data;
 using ProjectHouse.Models.House;
+using ProjectHouse.Core.Dto;
 
 namespace ProjectHouse.Controllers.House
 {
@@ -31,9 +32,25 @@ namespace ProjectHouse.Controllers.House
         }
         public IActionResult Create()
         {
-            HouseCreateUpdateViewModel car = new HouseCreateUpdateViewModel();
+            HouseCreateUpdateViewModel House = new HouseCreateUpdateViewModel();
 
-            return View("CreateUpdate", car);
+            return View("CreateUpdate", House);
+        }
+        public async Task<IActionResult> Create(HouseCreateUpdateViewModel vm)
+        {
+            var dto = new HouseDto()
+            {
+                id = vm.id,
+                Size = vm.Size,
+                NumberOfFloors = vm.NumberOfFloors,
+                NumberOfBathrooms = vm.NumberOfBathrooms,
+                NumberOfBedrooms = vm.NumberOfBedrooms,
+                CreatedAt = vm.CreatedAt,
+                ModifiedAt = vm.ModifiedAt,
+            };
+
+            return View("CreateUpdate");
+
         }
     }
 }
