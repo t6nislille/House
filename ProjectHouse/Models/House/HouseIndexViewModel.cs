@@ -8,8 +8,5 @@
         public int NumberOfBathrooms { get; set; }
         public int NumberOfBedrooms { get; set; }
 
-        // Only in database
-        public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get; set; }
     }
 }

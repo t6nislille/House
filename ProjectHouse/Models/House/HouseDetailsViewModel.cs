@@ -1,6 +1,6 @@
 ﻿namespace ProjectHouse.Models.House
 {
-    public class HouseEditViewModel
+    public class HouseDetailsViewModel
     {
         public Guid? Id { get; set; }
         public int Size { get; set; }
