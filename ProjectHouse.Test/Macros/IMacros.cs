@@ -1,6 +1,6 @@
 ﻿namespace ProjectHouse.HouseTest.Macros
 {
-    public class IMacros
+    public interface IMacros
     {
     }
 }

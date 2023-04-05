@@ -7,7 +7,6 @@ using ProjectHouse.Core.ServiceInterface;
 using ProjectHouse.Data;
 using ProjectHouse.HouseTest.Macros;
 using ProjectHouse.HouseTest.Mock;
-using Microsoft.AspNetCore.Hosting;
 
 namespace ProjectHouse.HouseTest
 {

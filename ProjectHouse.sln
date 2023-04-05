@@ -5,11 +5,13 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectHouse", "ProjectHouse\ProjectHouse.csproj", "{FAC3E2CC-D923-43ED-AD2D-5A8FB0656BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHouse.ApplicationServices", "ProjectHouse.ApplicationServices\ProjectHouse.ApplicationServices.csproj", "{A4C0D796-6FB3-4F9B-9353-42D36426181C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectHouse.ApplicationServices", "ProjectHouse.ApplicationServices\ProjectHouse.ApplicationServices.csproj", "{A4C0D796-6FB3-4F9B-9353-42D36426181C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHouse.Core", "ProjectHouse.Core\ProjectHouse.Core.csproj", "{004B975C-AA31-435A-9527-9B9C7CB2B3C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectHouse.Core", "ProjectHouse.Core\ProjectHouse.Core.csproj", "{004B975C-AA31-435A-9527-9B9C7CB2B3C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHouse.Data", "ProjectHouse.Data\ProjectHouse.Data.csproj", "{51A0FB8F-BA72-4E4A-ACC1-05DD70B3DDD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectHouse.Data", "ProjectHouse.Data\ProjectHouse.Data.csproj", "{51A0FB8F-BA72-4E4A-ACC1-05DD70B3DDD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectHouse.HouseTest", "ProjectHouse.Test\ProjectHouse.HouseTest.csproj", "{E7CF05D8-47F9-498D-A37B-E9B018BFDCB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{51A0FB8F-BA72-4E4A-ACC1-05DD70B3DDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A0FB8F-BA72-4E4A-ACC1-05DD70B3DDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A0FB8F-BA72-4E4A-ACC1-05DD70B3DDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7CF05D8-47F9-498D-A37B-E9B018BFDCB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7CF05D8-47F9-498D-A37B-E9B018BFDCB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7CF05D8-47F9-498D-A37B-E9B018BFDCB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7CF05D8-47F9-498D-A37B-E9B018BFDCB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
