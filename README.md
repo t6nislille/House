@@ -3,8 +3,8 @@
 Create, Read, Update and Delete real estate objects.<br>
 Real estate objects are stored in MySQL Database.
 
-## Install and Run
-# Clone the repository
+# Install and Run
+Clone the repository
 ```bash
 git clone https://github.com/t6nislille/House.git
 ```
